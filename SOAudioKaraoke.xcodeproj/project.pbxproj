@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		2544447D1F4DB27800D937F1 /* Adele - Skyfall Lyrics on screen.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2544447C1F4DB27800D937F1 /* Adele - Skyfall Lyrics on screen.mp3 */; };
 		2544447F1F4DB5A800D937F1 /* DPBasicLRCParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2544447E1F4DB5A800D937F1 /* DPBasicLRCParser.swift */; };
-		254444811F4DB62A00D937F1 /* Adele - Skyfall Lyrics on screen.lrc in Resources */ = {isa = PBXBuildFile; fileRef = 254444801F4DB62A00D937F1 /* Adele - Skyfall Lyrics on screen.lrc */; };
+		25A550771F4EF85300096D34 /* Adele - Skyfall Lyrics on screen.lrc in Resources */ = {isa = PBXBuildFile; fileRef = 25A550761F4EF85300096D34 /* Adele - Skyfall Lyrics on screen.lrc */; };
 		F930C8091DF941000034530E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F930C8081DF941000034530E /* AppDelegate.swift */; };
 		F930C80B1DF941000034530E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F930C80A1DF941000034530E /* ViewController.swift */; };
 		F930C80E1DF941000034530E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F930C80C1DF941000034530E /* Main.storyboard */; };
@@ -30,7 +30,7 @@
 /* Begin PBXFileReference section */
 		2544447C1F4DB27800D937F1 /* Adele - Skyfall Lyrics on screen.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Adele - Skyfall Lyrics on screen.mp3"; sourceTree = "<group>"; };
 		2544447E1F4DB5A800D937F1 /* DPBasicLRCParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DPBasicLRCParser.swift; sourceTree = "<group>"; };
-		254444801F4DB62A00D937F1 /* Adele - Skyfall Lyrics on screen.lrc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "Adele - Skyfall Lyrics on screen.lrc"; path = "../../Adele - Skyfall Lyrics on screen.lrc"; sourceTree = "<group>"; };
+		25A550761F4EF85300096D34 /* Adele - Skyfall Lyrics on screen.lrc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "Adele - Skyfall Lyrics on screen.lrc"; path = "../../../Adele - Skyfall Lyrics on screen.lrc"; sourceTree = "<group>"; };
 		F930C8051DF941000034530E /* SOAudioKaraoke.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SOAudioKaraoke.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F930C8081DF941000034530E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F930C80A1DF941000034530E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -88,7 +88,7 @@
 				2544447E1F4DB5A800D937F1 /* DPBasicLRCParser.swift */,
 				F930C8111DF941000034530E /* LaunchScreen.storyboard */,
 				F930C8141DF941000034530E /* Info.plist */,
-				254444801F4DB62A00D937F1 /* Adele - Skyfall Lyrics on screen.lrc */,
+				25A550761F4EF85300096D34 /* Adele - Skyfall Lyrics on screen.lrc */,
 			);
 			path = SOAudioKaraoke;
 			sourceTree = "<group>";
@@ -175,9 +175,9 @@
 				F930C8261DF95E9D0034530E /* 10.mp3 in Resources */,
 				F930C8281DF95E9D0034530E /* 3.mp3 in Resources */,
 				F930C82D1DF95E9D0034530E /* 8.mp3 in Resources */,
+				25A550771F4EF85300096D34 /* Adele - Skyfall Lyrics on screen.lrc in Resources */,
 				F930C8251DF95E9D0034530E /* 1.mp3 in Resources */,
 				F930C8131DF941000034530E /* LaunchScreen.storyboard in Resources */,
-				254444811F4DB62A00D937F1 /* Adele - Skyfall Lyrics on screen.lrc in Resources */,
 				F930C8271DF95E9D0034530E /* 2.mp3 in Resources */,
 				2544447D1F4DB27800D937F1 /* Adele - Skyfall Lyrics on screen.mp3 in Resources */,
 				F930C82E1DF95E9D0034530E /* 9.mp3 in Resources */,

@@ -11,6 +11,7 @@ import AVFoundation
 
 class ViewController: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDelegate {
 
+    @IBOutlet var viewBackground: UIView!
     @IBOutlet weak var phraseLabel: UILabel!
     @IBOutlet weak var btnPlay: UIButton!
     @IBOutlet weak var btnPrevious: UIButton!
@@ -30,8 +31,6 @@ class ViewController: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDe
     
     var audioPlayer:AVAudioPlayer!
     
-//    var audioPlayerAd:AVAudioPlayer!
-    
     var audioPlayerRecorded:AVAudioPlayer!
     var currentTrack = 0
     
@@ -40,8 +39,9 @@ class ViewController: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDe
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.viewBackground.backgroundColor = UIColor(patternImage: UIImage(named: "musicBackround.jpg")!)
         // Do any additional setup after loading the view, typically from a nib.
-        UIApplication.shared.isStatusBarHidden=true; 
+        UIApplication.shared.isStatusBarHidden=false;
         btnStop.isEnabled = false
         
         self.prepareRecorder()
