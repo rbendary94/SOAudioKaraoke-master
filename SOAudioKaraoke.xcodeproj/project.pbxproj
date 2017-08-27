@@ -9,7 +9,9 @@
 /* Begin PBXBuildFile section */
 		2544447D1F4DB27800D937F1 /* Adele - Skyfall Lyrics on screen.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2544447C1F4DB27800D937F1 /* Adele - Skyfall Lyrics on screen.mp3 */; };
 		2544447F1F4DB5A800D937F1 /* DPBasicLRCParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2544447E1F4DB5A800D937F1 /* DPBasicLRCParser.swift */; };
-		25A550771F4EF85300096D34 /* Adele - Skyfall Lyrics on screen.lrc in Resources */ = {isa = PBXBuildFile; fileRef = 25A550761F4EF85300096D34 /* Adele - Skyfall Lyrics on screen.lrc */; };
+		60F2679A718C7F760B26ADF4 /* Pods_SOAudioKaraoke.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A4FEA1CBE37D1D52DA98E92 /* Pods_SOAudioKaraoke.framework */; };
+		E30788DF1F52C1DB0093A763 /* Adele - Skyfall Lyrics on screen.lrc in Resources */ = {isa = PBXBuildFile; fileRef = E30788DE1F52C1DB0093A763 /* Adele - Skyfall Lyrics on screen.lrc */; };
+		E30788E31F52D5540093A763 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30788E21F52D5540093A763 /* LoginViewController.swift */; };
 		F930C8091DF941000034530E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F930C8081DF941000034530E /* AppDelegate.swift */; };
 		F930C80B1DF941000034530E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F930C80A1DF941000034530E /* ViewController.swift */; };
 		F930C80E1DF941000034530E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F930C80C1DF941000034530E /* Main.storyboard */; };
@@ -30,7 +32,12 @@
 /* Begin PBXFileReference section */
 		2544447C1F4DB27800D937F1 /* Adele - Skyfall Lyrics on screen.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Adele - Skyfall Lyrics on screen.mp3"; sourceTree = "<group>"; };
 		2544447E1F4DB5A800D937F1 /* DPBasicLRCParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DPBasicLRCParser.swift; sourceTree = "<group>"; };
-		25A550761F4EF85300096D34 /* Adele - Skyfall Lyrics on screen.lrc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "Adele - Skyfall Lyrics on screen.lrc"; path = "../../../Adele - Skyfall Lyrics on screen.lrc"; sourceTree = "<group>"; };
+		4390F37CD7AAFB02FEA4D6EB /* Pods-SOAudioKaraoke.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SOAudioKaraoke.release.xcconfig"; path = "Pods/Target Support Files/Pods-SOAudioKaraoke/Pods-SOAudioKaraoke.release.xcconfig"; sourceTree = "<group>"; };
+		4A4FEA1CBE37D1D52DA98E92 /* Pods_SOAudioKaraoke.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SOAudioKaraoke.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D79C7270B47C6398C7D32972 /* Pods-SOAudioKaraoke.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SOAudioKaraoke.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SOAudioKaraoke/Pods-SOAudioKaraoke.debug.xcconfig"; sourceTree = "<group>"; };
+		E30788DE1F52C1DB0093A763 /* Adele - Skyfall Lyrics on screen.lrc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Adele - Skyfall Lyrics on screen.lrc"; sourceTree = "<group>"; };
+		E30788E21F52D5540093A763 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		E30788E41F52E6960093A763 /* SOAudioKaraoke.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SOAudioKaraoke.entitlements; sourceTree = "<group>"; };
 		F930C8051DF941000034530E /* SOAudioKaraoke.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SOAudioKaraoke.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F930C8081DF941000034530E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F930C80A1DF941000034530E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -55,17 +62,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				60F2679A718C7F760B26ADF4 /* Pods_SOAudioKaraoke.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		00ECC60B30EACFBAB931E320 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4A4FEA1CBE37D1D52DA98E92 /* Pods_SOAudioKaraoke.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		353C3DFEE8C22811B1E70561 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D79C7270B47C6398C7D32972 /* Pods-SOAudioKaraoke.debug.xcconfig */,
+				4390F37CD7AAFB02FEA4D6EB /* Pods-SOAudioKaraoke.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		F930C7FC1DF941000034530E = {
 			isa = PBXGroup;
 			children = (
 				F930C8071DF941000034530E /* SOAudioKaraoke */,
 				F930C8061DF941000034530E /* Products */,
+				353C3DFEE8C22811B1E70561 /* Pods */,
+				00ECC60B30EACFBAB931E320 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -80,6 +107,7 @@
 		F930C8071DF941000034530E /* SOAudioKaraoke */ = {
 			isa = PBXGroup;
 			children = (
+				E30788E41F52E6960093A763 /* SOAudioKaraoke.entitlements */,
 				F930C81A1DF95E9D0034530E /* AudioFIles */,
 				F930C8081DF941000034530E /* AppDelegate.swift */,
 				F930C80A1DF941000034530E /* ViewController.swift */,
@@ -88,7 +116,8 @@
 				2544447E1F4DB5A800D937F1 /* DPBasicLRCParser.swift */,
 				F930C8111DF941000034530E /* LaunchScreen.storyboard */,
 				F930C8141DF941000034530E /* Info.plist */,
-				25A550761F4EF85300096D34 /* Adele - Skyfall Lyrics on screen.lrc */,
+				E30788DE1F52C1DB0093A763 /* Adele - Skyfall Lyrics on screen.lrc */,
+				E30788E21F52D5540093A763 /* LoginViewController.swift */,
 			);
 			path = SOAudioKaraoke;
 			sourceTree = "<group>";
@@ -118,9 +147,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F930C8171DF941000034530E /* Build configuration list for PBXNativeTarget "SOAudioKaraoke" */;
 			buildPhases = (
+				29ABBD049FE7E93FC5FF3957 /* [CP] Check Pods Manifest.lock */,
 				F930C8011DF941000034530E /* Sources */,
 				F930C8021DF941000034530E /* Frameworks */,
 				F930C8031DF941000034530E /* Resources */,
+				800DDFDF9D98248FC7EA48D3 /* [CP] Embed Pods Frameworks */,
+				1A44226B2D65352F3AFB2C07 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -145,6 +177,11 @@
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = RGBTF44XQU;
 						LastSwiftMigration = 0830;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -175,7 +212,7 @@
 				F930C8261DF95E9D0034530E /* 10.mp3 in Resources */,
 				F930C8281DF95E9D0034530E /* 3.mp3 in Resources */,
 				F930C82D1DF95E9D0034530E /* 8.mp3 in Resources */,
-				25A550771F4EF85300096D34 /* Adele - Skyfall Lyrics on screen.lrc in Resources */,
+				E30788DF1F52C1DB0093A763 /* Adele - Skyfall Lyrics on screen.lrc in Resources */,
 				F930C8251DF95E9D0034530E /* 1.mp3 in Resources */,
 				F930C8131DF941000034530E /* LaunchScreen.storyboard in Resources */,
 				F930C8271DF95E9D0034530E /* 2.mp3 in Resources */,
@@ -191,11 +228,74 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		1A44226B2D65352F3AFB2C07 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SOAudioKaraoke/Pods-SOAudioKaraoke-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		29ABBD049FE7E93FC5FF3957 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SOAudioKaraoke-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		800DDFDF9D98248FC7EA48D3 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-SOAudioKaraoke/Pods-SOAudioKaraoke-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FacebookCore/FacebookCore.framework",
+				"${BUILT_PRODUCTS_DIR}/FacebookLogin/FacebookLogin.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookCore.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookLogin.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SOAudioKaraoke/Pods-SOAudioKaraoke-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		F930C8011DF941000034530E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E30788E31F52D5540093A763 /* LoginViewController.swift in Sources */,
 				2544447F1F4DB5A800D937F1 /* DPBasicLRCParser.swift in Sources */,
 				F930C80B1DF941000034530E /* ViewController.swift in Sources */,
 				F930C8091DF941000034530E /* AppDelegate.swift in Sources */,
@@ -309,8 +409,10 @@
 		};
 		F930C8181DF941000034530E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D79C7270B47C6398C7D32972 /* Pods-SOAudioKaraoke.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = SOAudioKaraoke/SOAudioKaraoke.entitlements;
 				DEVELOPMENT_TEAM = RGBTF44XQU;
 				INFOPLIST_FILE = SOAudioKaraoke/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -322,8 +424,10 @@
 		};
 		F930C8191DF941000034530E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4390F37CD7AAFB02FEA4D6EB /* Pods-SOAudioKaraoke.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = SOAudioKaraoke/SOAudioKaraoke.entitlements;
 				DEVELOPMENT_TEAM = RGBTF44XQU;
 				INFOPLIST_FILE = SOAudioKaraoke/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
