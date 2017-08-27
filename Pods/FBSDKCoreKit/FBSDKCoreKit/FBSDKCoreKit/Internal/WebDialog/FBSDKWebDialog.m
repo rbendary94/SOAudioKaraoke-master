@@ -21,6 +21,10 @@
 #import "FBSDKAccessToken.h"
 #import "FBSDKDynamicFrameworkLoader.h"
 #import "FBSDKInternalUtility.h"
+<<<<<<< HEAD
+=======
+#import "FBSDKLogger.h"
+>>>>>>> origin/master
 #import "FBSDKSettings.h"
 #import "FBSDKTypeUtility.h"
 #import "FBSDKWebDialogView.h"
@@ -81,8 +85,15 @@ static FBSDKWebDialog *g_currentDialog = nil;
 
   g_currentDialog = self;
 
+<<<<<<< HEAD
   UIWindow *window = [self _findWindow];
   if (!window) {
+=======
+  UIWindow *window = [FBSDKInternalUtility findWindow];
+  if (!window) {
+    [FBSDKLogger singleShotLogEntry:FBSDKLoggingBehaviorDeveloperErrors
+                       formatString:@"There are no valid ViewController to present FBSDKWebDialog", nil];
+>>>>>>> origin/master
     [self _failWithError:nil];
     return NO;
   }
@@ -209,6 +220,7 @@ static FBSDKWebDialog *g_currentDialog = nil;
   });
 }
 
+<<<<<<< HEAD
 - (UIWindow *)_findWindow
 {
   UIWindow *window = [UIApplication sharedApplication].keyWindow;
@@ -222,6 +234,8 @@ static FBSDKWebDialog *g_currentDialog = nil;
   return window;
 }
 
+=======
+>>>>>>> origin/master
 - (NSURL *)_generateURL:(NSError **)errorRef
 {
   NSMutableDictionary *parameters = [[NSMutableDictionary alloc] init];
@@ -241,8 +255,15 @@ static FBSDKWebDialog *g_currentDialog = nil;
 
 - (BOOL)_showWebView
 {
+<<<<<<< HEAD
   UIWindow *window = [self _findWindow];
   if (!window) {
+=======
+  UIWindow *window = [FBSDKInternalUtility findWindow];
+  if (!window) {
+    [FBSDKLogger singleShotLogEntry:FBSDKLoggingBehaviorDeveloperErrors
+                       formatString:@"There are no valid ViewController to present FBSDKWebDialog", nil];
+>>>>>>> origin/master
     [self _failWithError:nil];
     return NO;
   }

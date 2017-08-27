@@ -622,10 +622,41 @@ static NSMapTable *_transientObjects;
   }
 }
 
+<<<<<<< HEAD
 
 + (UIViewController *)topMostViewController
 {
   UIViewController *topController = [UIApplication sharedApplication].keyWindow.rootViewController;
+=======
++ (UIWindow *)findWindow
+{
+  UIWindow *window = [UIApplication sharedApplication].keyWindow;
+  if (window == nil || window.windowLevel != UIWindowLevelNormal) {
+    for (window in [UIApplication sharedApplication].windows) {
+      if (window.windowLevel == UIWindowLevelNormal) {
+        break;
+      }
+    }
+  }
+  if (window == nil) {
+    [FBSDKLogger singleShotLogEntry:FBSDKLoggingBehaviorDeveloperErrors
+                       formatString:@"Unable to find a valid UIWindow", nil];
+  }
+  return window;
+}
+
++ (UIViewController *)topMostViewController
+{
+  UIWindow *keyWindow = [self findWindow];
+  // SDK expects a key window at this point, if it is not, make it one
+  if (keyWindow !=  nil && !keyWindow.isKeyWindow) {
+    [FBSDKLogger singleShotLogEntry:FBSDKLoggingBehaviorDeveloperErrors
+                       formatString:@"Unable to obtain a key window, marking %@ as keyWindow", keyWindow.description];
+    [keyWindow makeKeyWindow];
+  }
+
+  UIViewController *topController = keyWindow.rootViewController;
+>>>>>>> origin/master
   while (topController.presentedViewController) {
     topController = topController.presentedViewController;
   }
