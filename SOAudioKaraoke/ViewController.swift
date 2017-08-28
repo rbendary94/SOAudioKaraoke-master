@@ -8,6 +8,10 @@
 
 import UIKit
 import AVFoundation
+import FacebookLogin
+import FacebookCore
+import FBSDKCoreKit
+import FBSDKLoginKit
 
 class ViewController: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDelegate {
 
@@ -20,6 +24,8 @@ class ViewController: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDe
     @IBOutlet weak var slider: UISlider!
     @IBOutlet weak var btnRecord: UIButton!
     
+    @IBOutlet weak var userPic: UIImageView!
+    @IBOutlet weak var userName: UILabel!
     var audioRecorder:AVAudioRecorder!
     
     //Setting for recorder
@@ -47,9 +53,34 @@ class ViewController: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDe
         self.prepareRecorder()
         self.initilizePlayer()
         
-    
+        let userInfoDict =  UserDefaults.standard.dictionary(forKey: "userInfoDict")
+//        print("YAYYYY ===>" , UserDefaults.standard.dictionary(forKey: "userInfoDict"))
+        let name = (userInfoDict?["name"] as? String) ?? ""
+        let url = (userInfoDict?["picUrlSmall"] as? String) ?? ""
+   
+        userName.text = name
+        
+        print("YAYY ==>",url)
+        
+        let url_image = URL(string: url)
+        let data = try? Data(contentsOf: url_image! as URL)
+        userPic.image = UIImage(data: data!)
+        
+        userPic.layer.cornerRadius = userPic.frame.size.width * 0.5
+        userPic.layer.borderWidth = 1.5
+        userPic.layer.borderColor = UIColor.white.cgColor
+        userPic.clipsToBounds = true
     }
   
+    @IBAction func logoutFb(_ sender: Any) {
+        
+        let loginManager = FBSDKLoginManager()
+        loginManager.logOut()
+        print("user logged out from facebook")
+        
+        let vc = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "LoginViewController")
+        present(vc,animated: true,completion: nil)
+    }
     func prepareRecorder() {
         // getting URL path for audio
         let dirPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)

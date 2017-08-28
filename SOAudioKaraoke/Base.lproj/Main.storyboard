@@ -13,7 +13,7 @@
         <!--Login View Controller-->
         <scene sceneID="JbV-91-QOt">
             <objects>
-                <viewController id="Ppf-MV-LZD" customClass="LoginViewController" customModule="SOAudioKaraoke" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginViewController" id="Ppf-MV-LZD" customClass="LoginViewController" customModule="SOAudioKaraoke" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="WxC-vu-z7v"/>
                         <viewControllerLayoutGuide type="bottom" id="XEY-hu-Z2I"/>
@@ -26,12 +26,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FlQ-Ts-sKw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1146" y="388"/>
+            <point key="canvasLocation" x="-1545" y="387"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="SOAudioKaraoke" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LyricsViewController" id="BYZ-38-t0r" customClass="ViewController" customModule="SOAudioKaraoke" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -143,10 +143,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hkd-oP-Yrd">
-                                <rect key="frame" x="0.0" y="20" width="375" height="64"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Skyfall - Adele" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5YZ-7P-JXT">
-                                        <rect key="frame" x="130" y="21.5" width="116.5" height="21"/>
+                                        <rect key="frame" x="64" y="21.5" width="116.5" height="21"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="21" id="d0d-9G-OVh"/>
                                         </constraints>
@@ -154,12 +154,32 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cN4-9t-4PA">
+                                        <rect key="frame" x="8" y="8" width="48" height="48"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="48" id="Zah-nG-Y6o"/>
+                                            <constraint firstAttribute="height" constant="48" id="ik8-UT-X61"/>
+                                        </constraints>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ycA-kH-ksE">
+                                        <rect key="frame" x="319" y="8" width="48" height="48"/>
+                                        <state key="normal" title="Logout"/>
+                                        <connections>
+                                            <action selector="logoutFb:" destination="BYZ-38-t0r" eventType="touchUpInside" id="baL-td-zWY"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
+                                    <constraint firstItem="cN4-9t-4PA" firstAttribute="top" secondItem="hkd-oP-Yrd" secondAttribute="top" constant="8" id="3wP-XG-3q6"/>
+                                    <constraint firstItem="5YZ-7P-JXT" firstAttribute="leading" secondItem="cN4-9t-4PA" secondAttribute="trailing" constant="8" id="8yu-gd-euI"/>
                                     <constraint firstItem="5YZ-7P-JXT" firstAttribute="centerY" secondItem="hkd-oP-Yrd" secondAttribute="centerY" id="Ere-Le-qWY"/>
-                                    <constraint firstItem="5YZ-7P-JXT" firstAttribute="centerX" secondItem="hkd-oP-Yrd" secondAttribute="centerX" id="VgD-Tt-scc"/>
+                                    <constraint firstItem="cN4-9t-4PA" firstAttribute="leading" secondItem="hkd-oP-Yrd" secondAttribute="leading" constant="8" id="SU2-zD-uLb"/>
                                     <constraint firstAttribute="height" constant="64" id="Yf5-Eq-5b2"/>
+                                    <constraint firstAttribute="trailing" secondItem="ycA-kH-ksE" secondAttribute="trailing" constant="8" id="cAd-Rz-Lb6"/>
+                                    <constraint firstAttribute="bottom" secondItem="cN4-9t-4PA" secondAttribute="bottom" constant="8" id="jkO-XJ-Q0B"/>
+                                    <constraint firstAttribute="bottom" secondItem="ycA-kH-ksE" secondAttribute="bottom" constant="8" id="nFF-dm-37X"/>
+                                    <constraint firstItem="ycA-kH-ksE" firstAttribute="top" secondItem="hkd-oP-Yrd" secondAttribute="top" constant="8" id="tGM-Nv-jpi"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -168,7 +188,7 @@
                             <constraint firstItem="dCI-wA-Mhp" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="4Sg-gc-FQ5"/>
                             <constraint firstItem="40s-dv-BG3" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="4zO-zt-zCI"/>
                             <constraint firstItem="dCI-wA-Mhp" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="6ak-4V-Kwc"/>
-                            <constraint firstItem="hkd-oP-Yrd" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="20" id="8LG-mA-aZW"/>
+                            <constraint firstItem="hkd-oP-Yrd" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="8LG-mA-aZW"/>
                             <constraint firstItem="Wvr-3o-t4J" firstAttribute="top" secondItem="dCI-wA-Mhp" secondAttribute="bottom" constant="26" id="Dvm-a1-g1m"/>
                             <constraint firstAttribute="trailing" secondItem="hkd-oP-Yrd" secondAttribute="trailing" id="DxT-fH-TlT"/>
                             <constraint firstItem="40s-dv-BG3" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="IX3-Wh-ZQt"/>
@@ -189,12 +209,14 @@
                         <outlet property="btnStop" destination="nMu-QY-LZB" id="KGz-qd-UYm"/>
                         <outlet property="phraseLabel" destination="40s-dv-BG3" id="UU8-vG-LlB"/>
                         <outlet property="slider" destination="dCI-wA-Mhp" id="jDb-eR-NnY"/>
+                        <outlet property="userName" destination="5YZ-7P-JXT" id="pDu-mr-tfU"/>
+                        <outlet property="userPic" destination="cN4-9t-4PA" id="UzA-xC-W04"/>
                         <outlet property="viewBackground" destination="8bC-Xf-vdC" id="D8m-Ht-L7U"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-690" y="388"/>
+            <point key="canvasLocation" x="-889" y="174"/>
         </scene>
     </scenes>
 </document>

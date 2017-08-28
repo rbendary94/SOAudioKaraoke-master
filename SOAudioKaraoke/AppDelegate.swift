@@ -21,6 +21,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UIApplication.shared.statusBarStyle = .lightContent
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
         
+//        self.window = UIWindow(frame: UI)
+        
+        if let accessToken = AccessToken.current {
+            
+            
+            let lyricsViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "LyricsViewController")
+            self.window?.rootViewController = lyricsViewController
+            self.window?.makeKeyAndVisible()
+            
+            
+        }
+      
+        
         return true
     }
 
