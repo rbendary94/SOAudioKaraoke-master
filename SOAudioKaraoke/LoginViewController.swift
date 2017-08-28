@@ -48,7 +48,11 @@ class LoginViewController: UIViewController,LoginButtonDelegate {
         case .cancelled:
             print("Cancelled")
         case .success(let grantedPermissions, let declinedPermissions, let accessToken):
-            print("Logged In")
+            print("--------------Logged In--------------")
+            print(grantedPermissions)
+            print(declinedPermissions)
+            print(accessToken)
+            print("----------------------------")
             getUserProfile()
         }
     }
@@ -67,8 +71,8 @@ class LoginViewController: UIViewController,LoginButtonDelegate {
             case .success(let response):
                 print("Graph Request Succeeded: \(response)")
                 print("Custom Graph Request Succeeded: \(response)")
-                print("My facebook id is \(response.dictionaryValue?["id"])")
-                print("My name is \(response.dictionaryValue?["name"])")
+                print("My facebook id is \(String(describing: response.dictionaryValue?["id"]))")
+                print("My name is \(String(describing: response.dictionaryValue?["name"]))")
                 
             case .failed(let error):
                 print("Graph Request Failed: \(error)")

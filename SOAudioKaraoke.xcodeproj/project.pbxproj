@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		2544447D1F4DB27800D937F1 /* Adele - Skyfall Lyrics on screen.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2544447C1F4DB27800D937F1 /* Adele - Skyfall Lyrics on screen.mp3 */; };
 		2544447F1F4DB5A800D937F1 /* DPBasicLRCParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2544447E1F4DB5A800D937F1 /* DPBasicLRCParser.swift */; };
-		25789C971F52E89900F22FA2 /* TestLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25789C961F52E89900F22FA2 /* TestLoginViewController.swift */; };
 		9F2802D9EEAC9511E2E5587C /* Pods_SOAudioKaraoke.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D118E70B50CE0EB332D81470 /* Pods_SOAudioKaraoke.framework */; };
 		E30788E31F52D5540093A763 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30788E21F52D5540093A763 /* LoginViewController.swift */; };
 		F930C8091DF941000034530E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F930C8081DF941000034530E /* AppDelegate.swift */; };
@@ -32,7 +31,6 @@
 /* Begin PBXFileReference section */
 		2544447C1F4DB27800D937F1 /* Adele - Skyfall Lyrics on screen.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Adele - Skyfall Lyrics on screen.mp3"; sourceTree = "<group>"; };
 		2544447E1F4DB5A800D937F1 /* DPBasicLRCParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DPBasicLRCParser.swift; sourceTree = "<group>"; };
-		25789C961F52E89900F22FA2 /* TestLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestLoginViewController.swift; sourceTree = "<group>"; };
 		BE461B3CB299F7627ECEC7CE /* Pods-SOAudioKaraoke.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SOAudioKaraoke.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SOAudioKaraoke/Pods-SOAudioKaraoke.debug.xcconfig"; sourceTree = "<group>"; };
 		CB90AA830F5F5F875EBFFD17 /* Pods-SOAudioKaraoke.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SOAudioKaraoke.release.xcconfig"; path = "Pods/Target Support Files/Pods-SOAudioKaraoke/Pods-SOAudioKaraoke.release.xcconfig"; sourceTree = "<group>"; };
 		D118E70B50CE0EB332D81470 /* Pods_SOAudioKaraoke.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SOAudioKaraoke.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -114,7 +112,6 @@
 				2544447E1F4DB5A800D937F1 /* DPBasicLRCParser.swift */,
 				F930C8111DF941000034530E /* LaunchScreen.storyboard */,
 				F930C8141DF941000034530E /* Info.plist */,
-				25789C961F52E89900F22FA2 /* TestLoginViewController.swift */,
 				E30788E21F52D5540093A763 /* LoginViewController.swift */,
 			);
 			path = SOAudioKaraoke;
@@ -292,7 +289,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				25789C971F52E89900F22FA2 /* TestLoginViewController.swift in Sources */,
 				E30788E31F52D5540093A763 /* LoginViewController.swift in Sources */,
 				2544447F1F4DB5A800D937F1 /* DPBasicLRCParser.swift in Sources */,
 				F930C80B1DF941000034530E /* ViewController.swift in Sources */,
