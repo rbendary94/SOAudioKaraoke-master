@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		2544447D1F4DB27800D937F1 /* Adele - Skyfall Lyrics on screen.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2544447C1F4DB27800D937F1 /* Adele - Skyfall Lyrics on screen.mp3 */; };
 		2544447F1F4DB5A800D937F1 /* DPBasicLRCParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2544447E1F4DB5A800D937F1 /* DPBasicLRCParser.swift */; };
+		25FC54FA1F54274D00496501 /* Adele - Skyfall Lyrics on screen.lrc in Resources */ = {isa = PBXBuildFile; fileRef = 25FC54F91F54274D00496501 /* Adele - Skyfall Lyrics on screen.lrc */; };
+		25FC54FC1F54279700496501 /* DPBasicLRCParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25FC54FB1F54279700496501 /* DPBasicLRCParser.swift */; };
 		9F2802D9EEAC9511E2E5587C /* Pods_SOAudioKaraoke.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D118E70B50CE0EB332D81470 /* Pods_SOAudioKaraoke.framework */; };
 		E30788E31F52D5540093A763 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30788E21F52D5540093A763 /* LoginViewController.swift */; };
 		F930C8091DF941000034530E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F930C8081DF941000034530E /* AppDelegate.swift */; };
@@ -31,6 +33,8 @@
 /* Begin PBXFileReference section */
 		2544447C1F4DB27800D937F1 /* Adele - Skyfall Lyrics on screen.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Adele - Skyfall Lyrics on screen.mp3"; sourceTree = "<group>"; };
 		2544447E1F4DB5A800D937F1 /* DPBasicLRCParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DPBasicLRCParser.swift; sourceTree = "<group>"; };
+		25FC54F91F54274D00496501 /* Adele - Skyfall Lyrics on screen.lrc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Adele - Skyfall Lyrics on screen.lrc"; sourceTree = "<group>"; };
+		25FC54FB1F54279700496501 /* DPBasicLRCParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DPBasicLRCParser.swift; sourceTree = "<group>"; };
 		BE461B3CB299F7627ECEC7CE /* Pods-SOAudioKaraoke.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SOAudioKaraoke.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SOAudioKaraoke/Pods-SOAudioKaraoke.debug.xcconfig"; sourceTree = "<group>"; };
 		CB90AA830F5F5F875EBFFD17 /* Pods-SOAudioKaraoke.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SOAudioKaraoke.release.xcconfig"; path = "Pods/Target Support Files/Pods-SOAudioKaraoke/Pods-SOAudioKaraoke.release.xcconfig"; sourceTree = "<group>"; };
 		D118E70B50CE0EB332D81470 /* Pods_SOAudioKaraoke.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SOAudioKaraoke.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -111,7 +115,9 @@
 				F930C80F1DF941000034530E /* Assets.xcassets */,
 				2544447E1F4DB5A800D937F1 /* DPBasicLRCParser.swift */,
 				F930C8111DF941000034530E /* LaunchScreen.storyboard */,
+				25FC54FB1F54279700496501 /* DPBasicLRCParser.swift */,
 				F930C8141DF941000034530E /* Info.plist */,
+				25FC54F91F54274D00496501 /* Adele - Skyfall Lyrics on screen.lrc */,
 				E30788E21F52D5540093A763 /* LoginViewController.swift */,
 			);
 			path = SOAudioKaraoke;
@@ -165,7 +171,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0730;
-				LastUpgradeCheck = 0730;
+				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = myCompany;
 				TargetAttributes = {
 					F930C8041DF941000034530E = {
@@ -209,6 +215,7 @@
 				F930C82D1DF95E9D0034530E /* 8.mp3 in Resources */,
 				F930C8251DF95E9D0034530E /* 1.mp3 in Resources */,
 				F930C8131DF941000034530E /* LaunchScreen.storyboard in Resources */,
+				25FC54FA1F54274D00496501 /* Adele - Skyfall Lyrics on screen.lrc in Resources */,
 				F930C8271DF95E9D0034530E /* 2.mp3 in Resources */,
 				2544447D1F4DB27800D937F1 /* Adele - Skyfall Lyrics on screen.mp3 in Resources */,
 				F930C82E1DF95E9D0034530E /* 9.mp3 in Resources */,
@@ -289,6 +296,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				25FC54FC1F54279700496501 /* DPBasicLRCParser.swift in Sources */,
 				E30788E31F52D5540093A763 /* LoginViewController.swift in Sources */,
 				2544447F1F4DB5A800D937F1 /* DPBasicLRCParser.swift in Sources */,
 				F930C80B1DF941000034530E /* ViewController.swift in Sources */,
@@ -332,8 +340,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -377,8 +387,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -397,6 +409,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
