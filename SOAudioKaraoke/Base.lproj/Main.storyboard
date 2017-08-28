@@ -21,23 +21,7 @@
                     <view key="view" contentMode="scaleToFill" id="bsK-t9-QKs">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qEY-C9-qdz">
-                                <rect key="frame" x="135" y="318.5" width="104" height="30"/>
-                                <color key="backgroundColor" red="0.24553572158584158" green="0.3744617506892346" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <state key="normal" title="Facebook login">
-                                    <color key="titleColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
-                                </state>
-                                <connections>
-                                    <action selector="btnFBLoginPressed:" destination="Ppf-MV-LZD" eventType="touchUpInside" id="CKl-WZ-BG9"/>
-                                </connections>
-                            </button>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="qEY-C9-qdz" firstAttribute="centerX" secondItem="bsK-t9-QKs" secondAttribute="centerX" id="AJ3-mF-0Zd"/>
-                            <constraint firstItem="qEY-C9-qdz" firstAttribute="centerY" secondItem="bsK-t9-QKs" secondAttribute="centerY" id="x3u-zI-o7V"/>
-                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FlQ-Ts-sKw" userLabel="First Responder" sceneMemberID="firstResponder"/>

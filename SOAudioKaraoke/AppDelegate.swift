@@ -44,20 +44,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
     
-    func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject?) -> Bool {
-        //Even though the Facebook SDK can make this determinitaion on its own,
-        //let's make sure that the facebook SDK only sees urls intended for it,
-        //facebook has enough info already!
-        let isFacebookURL = url.scheme != nil && url.scheme!.hasPrefix("fb\(FBSDKSettings.appID())") && url.host == "authorize"
-        if isFacebookURL {
-            return FBSDKApplicationDelegate.sharedInstance().application(application, open: url as URL!, sourceApplication: sourceApplication, annotation: annotation)
-        }
-        return false
+    func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
+        return FBSDKApplicationDelegate.sharedInstance().application(application, open: url as URL!, sourceApplication: sourceApplication, annotation: annotation)
+       
     }
-    
-    func applicationDidBecomeActive(application: UIApplication) {
-        //App activation code
-        FBSDKAppEvents.activateApp()
+    func applicationDidBecomeActive(_ application: UIApplication) {
+        
     }
 
 }

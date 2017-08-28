@@ -12,21 +12,18 @@ import FacebookCore
 import FBSDKCoreKit
 import FBSDKLoginKit
 
-class LoginViewController: UIViewController {
+class LoginViewController: UIViewController,LoginButtonDelegate {
 
     var dict : [String : AnyObject]!
 
     override func viewDidLoad() {
         super.viewDidLoad()
        
-    
-        
-        // Do any additional setup after loading the view.
-        
-        
-//        if ([FBSDKAccessToken currentAccessToken]) {
-//            // User is logged in, do work such as go to next view controller.
-//        }
+        let loginButton = LoginButton(readPermissions: [ .publicProfile , .userFriends ])
+        loginButton.center = view.center
+        loginButton.delegate = self
+        view.addSubview(loginButton)
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -44,39 +41,41 @@ class LoginViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-    @IBAction func btnFBLoginPressed(_ sender: AnyObject) {
-        let fbLoginManager : FBSDKLoginManager = FBSDKLoginManager()
-        fbLoginManager.logIn(withReadPermissions: ["email"], from: self) { (result, error) in
-            if (error == nil){
-                let fbloginresult : FBSDKLoginManagerLoginResult = result!
-                if fbloginresult.grantedPermissions != nil {
-                    if(fbloginresult.grantedPermissions.contains("email"))
-                    {
-                        self.getFBUserData()
-                        fbLoginManager.logOut()
-                    }
-                    else{
-                        print("ELSEE")
-                    }
-                }
-            }
-            else
-            {
-                print("ERROR " , error)
-            }
+    func loginButtonDidCompleteLogin(_ loginButton: LoginButton, result: LoginResult) {
+        switch result {
+        case .failed(let error):
+            print(error)
+        case .cancelled:
+            print("Cancelled")
+        case .success(let grantedPermissions, let declinedPermissions, let accessToken):
+            print("Logged In")
+            getUserProfile()
         }
     }
     
-    func getFBUserData(){
-        if((FBSDKAccessToken.current()) != nil){
-            FBSDKGraphRequest(graphPath: "me", parameters: ["fields": "id, name, first_name, last_name, picture.type(large), email"]).start(completionHandler: { (connection, result, error) -> Void in
-                if (error == nil){
-                    self.dict = result as! [String : AnyObject]
-                    print(result!)
-                    print(self.dict)
-                }
-            })
+    func loginButtonDidLogOut(_ loginButton: LoginButton) {
+        
+        
+        print("Logged Out")
+    }
+//
+    func getUserProfile () {
+        let connection = GraphRequestConnection()
+        connection.add(GraphRequest(graphPath: "/me", parameters: ["fields": "id, name, email"], accessToken: AccessToken.current, httpMethod: GraphRequestHTTPMethod(rawValue: "GET")!, apiVersion: "2.8")) { httpResponse, result in
+            print("result == ", result)
+            switch result {
+            case .success(let response):
+                print("Graph Request Succeeded: \(response)")
+                print("Custom Graph Request Succeeded: \(response)")
+                print("My facebook id is \(response.dictionaryValue?["id"])")
+                print("My name is \(response.dictionaryValue?["name"])")
+                
+            case .failed(let error):
+                print("Graph Request Failed: \(error)")
+            }
         }
+        
+        connection.start()
     }
   
 }

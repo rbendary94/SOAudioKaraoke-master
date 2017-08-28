@@ -175,7 +175,7 @@
 				TargetAttributes = {
 					F930C8041DF941000034530E = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = RGBTF44XQU;
+						DevelopmentTeam = ZUGQUHK8J8;
 						LastSwiftMigration = 0830;
 						SystemCapabilities = {
 							com.apple.Keychain = {
@@ -413,10 +413,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = SOAudioKaraoke/SOAudioKaraoke.entitlements;
-				DEVELOPMENT_TEAM = RGBTF44XQU;
+				DEVELOPMENT_TEAM = ZUGQUHK8J8;
 				INFOPLIST_FILE = SOAudioKaraoke/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.EverestMinds.SOAudioKaraoke;
+				PRODUCT_BUNDLE_IDENTIFIER = com.EverestMinds.SOAudioKaraoke2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -428,10 +428,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = SOAudioKaraoke/SOAudioKaraoke.entitlements;
-				DEVELOPMENT_TEAM = RGBTF44XQU;
+				DEVELOPMENT_TEAM = ZUGQUHK8J8;
 				INFOPLIST_FILE = SOAudioKaraoke/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.EverestMinds.SOAudioKaraoke;
+				PRODUCT_BUNDLE_IDENTIFIER = com.EverestMinds.SOAudioKaraoke2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
