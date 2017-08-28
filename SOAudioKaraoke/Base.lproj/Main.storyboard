@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<<<<<<< HEAD
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="DEt-WY-aG7">
-=======
+
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F2073" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Ppf-MV-LZD">
->>>>>>> origin/master
+
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -216,7 +214,7 @@
             </objects>
             <point key="canvasLocation" x="264.80000000000001" y="388.15592203898052"/>
         </scene>
-<<<<<<< HEAD
+
         <!--Test Login View Controller-->
         <scene sceneID="Jpf-wC-F8V">
             <objects>
@@ -252,7 +250,6 @@
             </objects>
             <point key="canvasLocation" x="-423" y="384"/>
         </scene>
-=======
->>>>>>> origin/master
+
     </scenes>
 </document>
