@@ -622,12 +622,6 @@ static NSMapTable *_transientObjects;
   }
 }
 
-<<<<<<< HEAD
-
-+ (UIViewController *)topMostViewController
-{
-  UIViewController *topController = [UIApplication sharedApplication].keyWindow.rootViewController;
-=======
 + (UIWindow *)findWindow
 {
   UIWindow *window = [UIApplication sharedApplication].keyWindow;
@@ -656,7 +650,6 @@ static NSMapTable *_transientObjects;
   }
 
   UIViewController *topController = keyWindow.rootViewController;
->>>>>>> origin/master
   while (topController.presentedViewController) {
     topController = topController.presentedViewController;
   }

@@ -7,7 +7,6 @@ target 'SOAudioKaraoke' do
 
   # Pods for SOAudioKaraoke
 pod ‘FacebookCore’
-pod 'FacebookLogin'
-
+pod ‘FacebookLogin’
 
 end

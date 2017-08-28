@@ -10,7 +10,6 @@ import UIKit
 import FacebookCore
 import FacebookLogin
 
-
 class TestLoginViewController: UIViewController {
 
     override func viewDidLoad() {

@@ -55,22 +55,13 @@ static NSString *const FBSDKAppLinkInboundEvent = @"fb_al_inbound";
   FBSDKBridgeAPIRequest *_pendingRequest;
   FBSDKBridgeAPICallbackBlock _pendingRequestCompletionBlock;
   id<FBSDKURLOpening> _pendingURLOpen;
-<<<<<<< HEAD
-=======
  #ifdef __IPHONE_11_0
   SFAuthenticationSession *_authenticationSession NS_AVAILABLE_IOS(11_0);
  #endif
->>>>>>> origin/master
 #endif
   BOOL _expectingBackground;
   UIViewController *_safariViewController;
   BOOL _isDismissingSafariViewController;
-<<<<<<< HEAD
-#ifdef __IPHONE_11_0
-  SFAuthenticationSession *_authenticationSession;
-#endif
-=======
->>>>>>> origin/master
 }
 
 #pragma mark - Class Methods
@@ -367,15 +358,12 @@ static NSString *const FBSDKAppLinkInboundEvent = @"fb_al_inbound";
 
   if (SFSafariViewControllerClass) {
     UIViewController *parent = fromViewController ?: [FBSDKInternalUtility topMostViewController];
-<<<<<<< HEAD
-=======
     if (parent == nil) {
       [FBSDKLogger singleShotLogEntry:FBSDKLoggingBehaviorDeveloperErrors
                          formatString:@"There are no valid ViewController to present SafariViewController with", nil];
       return;
     }
 
->>>>>>> origin/master
     NSURLComponents *components = [NSURLComponents componentsWithURL:url resolvingAgainstBaseURL:NO];
     NSURLQueryItem *sfvcQueryItem = [[NSURLQueryItem alloc] initWithName:@"sfvc" value:@"1"];
     [components setQueryItems:[components.queryItems arrayByAddingObject:sfvcQueryItem]];
