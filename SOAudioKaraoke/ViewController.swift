@@ -56,15 +56,17 @@ class ViewController: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDe
         let userInfoDict =  UserDefaults.standard.dictionary(forKey: "userInfoDict")
 //        print("YAYYYY ===>" , UserDefaults.standard.dictionary(forKey: "userInfoDict"))
         let name = (userInfoDict?["name"] as? String) ?? ""
-        let url = (userInfoDict?["picUrlSmall"] as? String) ?? ""
+        let url = (userInfoDict?["picUrlSmall"] as? String)
    
         userName.text = name
         
-        print("YAYY ==>",url)
+        print("YAYY ==> url ",url ?? "url fady")
+        if((url) != nil){
+            let url_image = URL(string: url!)
+            let data = try? Data(contentsOf: url_image! as URL)
+            userPic.image = UIImage(data: data!)
+        }
         
-        let url_image = URL(string: url)
-        let data = try? Data(contentsOf: url_image! as URL)
-        userPic.image = UIImage(data: data!)
         
         userPic.layer.cornerRadius = userPic.frame.size.width * 0.5
         userPic.layer.borderWidth = 1.5

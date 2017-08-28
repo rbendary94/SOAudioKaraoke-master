@@ -154,7 +154,7 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cN4-9t-4PA">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="musicBackround" translatesAutoresizingMaskIntoConstraints="NO" id="cN4-9t-4PA">
                                         <rect key="frame" x="8" y="8" width="48" height="48"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="48" id="Zah-nG-Y6o"/>
@@ -219,4 +219,7 @@
             <point key="canvasLocation" x="-889" y="174"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="musicBackround" width="450" height="338"/>
+    </resources>
 </document>
