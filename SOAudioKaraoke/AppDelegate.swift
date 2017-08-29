@@ -22,14 +22,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
         
 //        self.window = UIWindow(frame: UI)
-        
+        print("Starting the App")
         if let accessToken = AccessToken.current {
-            
             
             let lyricsViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "LyricsViewController")
             self.window?.rootViewController = lyricsViewController
             self.window?.makeKeyAndVisible()
-            
+            print("User already signed in")
             
         }
       

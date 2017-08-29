@@ -30,17 +30,7 @@ class LoginViewController: UIViewController,LoginButtonDelegate {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
     func loginButtonDidCompleteLogin(_ loginButton: LoginButton, result: LoginResult) {
         switch result {
         case .failed(let error):
@@ -55,17 +45,15 @@ class LoginViewController: UIViewController,LoginButtonDelegate {
             print("-------------------------------------")
             
             getUserProfile()
-            let vc = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "LyricsViewController")
-            present(vc,animated: true,completion: nil)
+            
         }
     }
     
     func loginButtonDidLogOut(_ loginButton: LoginButton) {
         
-        
         print("Logged Out")
     }
-//
+
     func getUserProfile () {
         let connection = GraphRequestConnection()
         connection.add(GraphRequest(graphPath: "/me", parameters: ["fields": "id, name, email,first_name, picture.type(small)"],accessToken: AccessToken.current, httpMethod: GraphRequestHTTPMethod(rawValue: "GET")!, apiVersion: "2.8")) { httpResponse, result in
@@ -86,9 +74,7 @@ class LoginViewController: UIViewController,LoginButtonDelegate {
                 var userInfoDict: [String:Any] = ["name":name]
                 userInfoDict["first_name"] = first_name
                 userInfoDict["id"] = id
-                
-
-                
+            
                 if let picture = response.dictionaryValue?["picture"] as? Dictionary<String, Any> {
                     
                     if let data = picture["data"] as? Dictionary<String, Any> {
@@ -98,11 +84,12 @@ class LoginViewController: UIViewController,LoginButtonDelegate {
                         }
                     }
                 }
-                
-                
-                
+              
                 UserDefaults.standard.set(userInfoDict, forKey: "userInfoDict")
                 UserDefaults.standard.synchronize()
+                
+                let vc = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "LyricsViewController")
+                self.present(vc,animated: true,completion: nil)
                 
             case .failed(let error):
                 print("Graph Request Failed: \(error)")

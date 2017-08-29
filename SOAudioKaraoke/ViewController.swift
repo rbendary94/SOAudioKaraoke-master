@@ -88,8 +88,7 @@ class ViewController: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDe
             let data = try? Data(contentsOf: url_image! as URL)
             userPic.image = UIImage(data: data!)
         }
-        
-        
+ 
         userPic.layer.cornerRadius = userPic.frame.size.width * 0.5
         userPic.layer.borderWidth = 1.5
         userPic.layer.borderColor = UIColor.white.cgColor
