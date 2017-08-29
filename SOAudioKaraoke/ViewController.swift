@@ -24,6 +24,7 @@ class ViewController: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDe
     @IBOutlet weak var slider: UISlider!
     @IBOutlet weak var btnRecord: UIButton!
     
+    @IBOutlet weak var currentTrackTimeLabel: UILabel!
     @IBOutlet weak var userPic: UIImageView!
     @IBOutlet weak var userName: UILabel!
     var audioRecorder:AVAudioRecorder!
@@ -40,8 +41,9 @@ class ViewController: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDe
     var audioPlayerRecorded:AVAudioPlayer!
     var currentTrack = 0
     
-    var arrTracks = ["1", "2", "Adele - Skyfall Lyrics on screen", "3", "4", "5", "6", "7", "8", "9", "10"]
+    var arrTracks =  "Adele - Skyfall Lyrics on screen"
     var timer = Timer()
+    var timerSlider = Timer()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,9 +54,9 @@ class ViewController: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDe
         
         self.prepareRecorder()
         self.initilizePlayer()
+
         
         let userInfoDict =  UserDefaults.standard.dictionary(forKey: "userInfoDict")
-//        print("YAYYYY ===>" , UserDefaults.standard.dictionary(forKey: "userInfoDict"))
         let name = (userInfoDict?["name"] as? String) ?? ""
         let url = (userInfoDict?["picUrlSmall"] as? String)
    
@@ -119,7 +121,7 @@ class ViewController: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDe
     
     //MARK: Audio player initilizer with some bundled audio files
     func initilizePlayer() {
-        let strTrack = arrTracks[currentTrack] as String
+        let strTrack = arrTracks
         let audioFilePath = Bundle.main.path(forResource: strTrack, ofType: "mp3")
         
         if audioFilePath != nil {
@@ -143,32 +145,33 @@ class ViewController: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDe
     //MARK: Start Recording
     @IBAction func actionStartRecord(_ sender: AnyObject) {
         if !audioRecorder.isRecording {
-            btnPlay.isEnabled = true
+            btnPlay.isEnabled = false
+            btnStop.isEnabled = false
             audioPlayer.play()
             audioRecorder?.record()
             btnRecord.setTitle("Stop", for: UIControlState())
+            self.startTimer()
+            self.startSliderTimer()
         } else {
             //Stop audio
             btnPlay.isEnabled = true
+            btnStop.isEnabled = true
             self.initilizePlayer()
             audioRecorder?.stop()
             btnRecord.setTitle("Record", for: UIControlState())
+            self.stopTimer()
         }
     }
-    
 
-    
-    
     //MARK: Start and Pause button action
     @IBAction func actionPlaySound(_ sender: UIButton) {
-        
 //        if audioRecorder?.isRecording == false {
             if audioPlayer.isPlaying == false {
-                
                 var error : NSError?
                 
                 do {
                     audioPlayerRecorded = try AVAudioPlayer(contentsOf: (audioRecorder?.url)!)
+                    print("Recorded file temp URL:  " ,  audioRecorder?.url)
                 } catch let error1 as NSError {
                     error = error1
                     audioPlayer = nil
@@ -181,12 +184,13 @@ class ViewController: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDe
                 }else{
                     audioPlayer?.play()
                     audioPlayerRecorded?.play()
-                    //
+                    
                 }
                 
                 btnPlay.setTitle("Pause", for: UIControlState())
                 btnRecord.isEnabled = false
                 self.startTimer()
+                self.startSliderTimer()
             } else {
                 audioPlayer.pause()
                 btnPlay.setTitle("Play", for: UIControlState())
@@ -198,26 +202,29 @@ class ViewController: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDe
         btnStop.isEnabled = true
     }
 
-    
-
-    //MARK: Update slider
-    func updateSlider() {
-//        print("audioPlayer.currentTime", "audioPlayer.duration")
-//        print(audioPlayer.currentTime, audioPlayer.duration)
+    func updateSlider(){
+        
         slider.maximumValue = Float(audioPlayer.duration)
         slider.value = Float(audioPlayer.currentTime)
-        //slider.value = normalizedTime
+        print("Audio Player is playing:  ",audioPlayer.isPlaying)
+        let mins  = audioPlayer.currentTime/60
+        var seconds  = String(format: "%.2f",mins)
+        print("=====>> " , seconds)
+        seconds = seconds.replacingOccurrences(of: ".", with: ":")
         
-        //get phrase at this second from dictionary
-        //if !nill -> set text of phrase label
-        //else -> keep as is
+        currentTrackTimeLabel.text = "\(seconds)"
         
+    }
+
+    //MARK: Update slider
+    func updateLyrics() {
+
+       
+
         do{
             let lyricContent = try String(contentsOfFile: Bundle.main.path(forResource: "Adele - Skyfall Lyrics on screen", ofType: "lrc")!, encoding: String.Encoding.utf8)
             let lrcParser = DPBasicLRCParser()
             let lyricObject = lrcParser.parseLyricWithString(lyricContent)
-            
-//             let newCurrentTime = Int(audioPlayer.currentTime * 100)
             
             let myDouble = audioPlayer.currentTime
             let doubleStr = String(format: "%.2f", myDouble) // "3.14"
@@ -243,54 +250,21 @@ class ViewController: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDe
     }
     
     
-    //MARK: Action for play next track
-    @IBAction func actionNextTrack(_ sender: UIButton) {
-        self.playNextTrack()
-    }
-    
-    
-    func playNextTrack() {
-        if audioPlayer?.isPlaying == true {
-            audioPlayer?.stop()
-        }
-        
-        currentTrack += 1
-        if currentTrack >= arrTracks.count {
-            currentTrack = 0
-        }
-        self.initilizePlayer()
-        audioPlayer?.play()
-    }
-    
-    //MARK: Action for play previous track
-    @IBAction func actionPreviousTrack(_ sender: UIButton) {
-        if audioPlayer?.isPlaying == true {
-            audioPlayer?.stop()
-        }
-        currentTrack -= 1
-        if currentTrack < 0 {
-            currentTrack = arrTracks.count - 1
-        }
-        
-        self.initilizePlayer()
-        audioPlayer.play()
-    }
-    
-    
-    
     //MARK: Action for play previous track
     @IBAction func actionStop(_ sender: UIButton) {
         if audioPlayer?.isPlaying == true {
             audioPlayer?.stop()
             audioPlayer?.currentTime = 0
+            audioRecorder?.stop()
             self.stopTimer()
         }
         btnRecord.isEnabled = true
         btnPlay.setTitle("Play", for: UIControlState())
         btnStop.isEnabled = false
         slider.value = 0.0
-    }
-    
+        phraseLabel.text = ""
+        currentTrackTimeLabel.text = "0:00"
+       }
     
     //Mark: AVAudioPlayer Delegate
     func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool){
@@ -321,12 +295,20 @@ class ViewController: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDe
     
     //MARK: Timer stop and start for update slider for time
     func startTimer() {
-        timer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(ViewController.updateSlider), userInfo: nil, repeats: true)
+        timer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(ViewController.updateLyrics), userInfo: nil, repeats: true)
     }
+    func startSliderTimer(){
+    
+          timerSlider = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(ViewController.updateSlider), userInfo: nil, repeats: true)
+    }
+    
     
     func stopTimer() {
         if timer.isValid == true {
             timer.invalidate()
+        }
+        if timerSlider.isValid == true {
+            timerSlider.invalidate()
         }
     }
     
@@ -335,7 +317,6 @@ class ViewController: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDe
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
 
 }
 
