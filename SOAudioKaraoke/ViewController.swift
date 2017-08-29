@@ -48,6 +48,13 @@ class ViewController: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDe
     override func viewDidLoad() {
         super.viewDidLoad()
         self.viewBackground.backgroundColor = UIColor(patternImage: UIImage(named: "musicBackround.jpg")!)
+
+        let ratio : CGFloat = 0.4
+        
+        let thumbImage = UIImage(named: "slider-thumb")
+        let size = CGSize(width: (thumbImage?.size.width)! * ratio , height: (thumbImage?.size.height)! * ratio)
+        self.slider.setThumbImage(imageWithImage(image: thumbImage!, scaledToSize: size), for: .normal)
+        self.slider.setThumbImage(imageWithImage(image: thumbImage!, scaledToSize: size), for: .highlighted)
         // Do any additional setup after loading the view, typically from a nib.
         UIApplication.shared.isStatusBarHidden=false;
         btnStop.isEnabled = false
@@ -61,7 +68,6 @@ class ViewController: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDe
         let url = (userInfoDict?["picUrlSmall"] as? String)
    
         userName.text = name
-        
         print("YAYY ==> url ",url ?? "url fady")
         if((url) != nil){
             let url_image = URL(string: url!)
@@ -74,6 +80,16 @@ class ViewController: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDe
         userPic.layer.borderWidth = 1.5
         userPic.layer.borderColor = UIColor.white.cgColor
         userPic.clipsToBounds = true
+    }
+    
+    func imageWithImage(image:UIImage, scaledToSize newSize:CGSize) -> UIImage{
+        
+        UIGraphicsBeginImageContextWithOptions(newSize, false, 0.0)
+        image.draw(in: CGRect(x: 0, y: 0, width: newSize.width, height: newSize.height))
+        let newImage:UIImage = UIGraphicsGetImageFromCurrentImageContext()!
+        UIGraphicsEndImageContext()
+        
+        return newImage
     }
   
     @IBAction func logoutFb(_ sender: Any) {
