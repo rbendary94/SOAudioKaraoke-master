@@ -23,10 +23,10 @@ class ViewController: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDe
     @IBOutlet weak var btnNext: UIButton!
     @IBOutlet weak var slider: UISlider!
     @IBOutlet weak var btnRecord: UIButton!
-    
     @IBOutlet weak var currentTrackTimeLabel: UILabel!
     @IBOutlet weak var userPic: UIImageView!
     @IBOutlet weak var userName: UILabel!
+   
     var audioRecorder:AVAudioRecorder!
     
     //Setting for recorder
@@ -34,10 +34,7 @@ class ViewController: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDe
                           AVEncoderBitRateKey: 16,
                           AVNumberOfChannelsKey : 2,
                           AVSampleRateKey: 44100.0] as [String : Any]
-    
-    
     var audioPlayer:AVAudioPlayer!
-    
     var audioPlayerRecorded:AVAudioPlayer!
     var currentTrack = 0
     
@@ -48,25 +45,42 @@ class ViewController: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDe
     override func viewDidLoad() {
         super.viewDidLoad()
         self.viewBackground.backgroundColor = UIColor(patternImage: UIImage(named: "musicBackround.jpg")!)
-
-        let ratio : CGFloat = 0.4
-        
-        let thumbImage = UIImage(named: "slider-thumb")
-        let size = CGSize(width: (thumbImage?.size.width)! * ratio , height: (thumbImage?.size.height)! * ratio)
-        self.slider.setThumbImage(imageWithImage(image: thumbImage!, scaledToSize: size), for: .normal)
-        self.slider.setThumbImage(imageWithImage(image: thumbImage!, scaledToSize: size), for: .highlighted)
-        // Do any additional setup after loading the view, typically from a nib.
-        UIApplication.shared.isStatusBarHidden=false;
         btnStop.isEnabled = false
+
+        customizeSlider()
+        getUserInfoFromFB()
         
         self.prepareRecorder()
         self.initilizePlayer()
-
+ 
+    }
+    
+    func customizeSlider(){
+        
+        let ratio : CGFloat = 0.4
+        let thumbImage = UIImage(named: "slider-thumb")
+        let size = CGSize(width: (thumbImage?.size.width)! * ratio , height: (thumbImage?.size.height)! * ratio)
+        self.slider.setThumbImage(imageWithImage(image: thumbImage!, scaledToSize: size), for:  .normal)
+        self.slider.setThumbImage(imageWithImage(image: thumbImage!, scaledToSize: size), for:  .highlighted)
+        
+    }
+    
+    func imageWithImage(image:UIImage, scaledToSize newSize:CGSize) -> UIImage{
+        
+        UIGraphicsBeginImageContextWithOptions(newSize, false, 0.0)
+        image.draw(in: CGRect(x: 0, y: 0, width: newSize.width, height: newSize.height))
+        let newImage:UIImage = UIGraphicsGetImageFromCurrentImageContext()!
+        UIGraphicsEndImageContext()
+        
+        return newImage
+    }
+    
+    func getUserInfoFromFB(){
         
         let userInfoDict =  UserDefaults.standard.dictionary(forKey: "userInfoDict")
         let name = (userInfoDict?["name"] as? String) ?? ""
         let url = (userInfoDict?["picUrlSmall"] as? String)
-   
+        
         userName.text = name
         print("YAYY ==> url ",url ?? "url fady")
         if((url) != nil){
@@ -81,16 +95,6 @@ class ViewController: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDe
         userPic.layer.borderColor = UIColor.white.cgColor
         userPic.clipsToBounds = true
     }
-    
-    func imageWithImage(image:UIImage, scaledToSize newSize:CGSize) -> UIImage{
-        
-        UIGraphicsBeginImageContextWithOptions(newSize, false, 0.0)
-        image.draw(in: CGRect(x: 0, y: 0, width: newSize.width, height: newSize.height))
-        let newImage:UIImage = UIGraphicsGetImageFromCurrentImageContext()!
-        UIGraphicsEndImageContext()
-        
-        return newImage
-    }
   
     @IBAction func logoutFb(_ sender: Any) {
         
@@ -101,6 +105,7 @@ class ViewController: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDe
         let vc = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "LoginViewController")
         present(vc,animated: true,completion: nil)
     }
+
     func prepareRecorder() {
         // getting URL path for audio
         let dirPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
@@ -157,86 +162,112 @@ class ViewController: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDe
         }
     }
     
-
     //MARK: Start Recording
     @IBAction func actionStartRecord(_ sender: AnyObject) {
         if !audioRecorder.isRecording {
             btnPlay.isEnabled = false
-            btnStop.isEnabled = false
+            btnStop.isEnabled = true
+            btnRecord.isEnabled = false
+            
             audioPlayer.play()
             audioRecorder?.record()
-            btnRecord.setTitle("Stop", for: UIControlState())
             self.startTimer()
             self.startSliderTimer()
-        } else {
-            //Stop audio
-            btnPlay.isEnabled = true
-            btnStop.isEnabled = true
-            self.initilizePlayer()
-            audioRecorder?.stop()
-            btnRecord.setTitle("Record", for: UIControlState())
-            self.stopTimer()
+            
         }
     }
 
     //MARK: Start and Pause button action
     @IBAction func actionPlaySound(_ sender: UIButton) {
-//        if audioRecorder?.isRecording == false {
-            if audioPlayer.isPlaying == false {
-                var error : NSError?
-                
-                do {
-                    audioPlayerRecorded = try AVAudioPlayer(contentsOf: (audioRecorder?.url)!)
-                    print("Recorded file temp URL:  " ,  audioRecorder?.url)
-                } catch let error1 as NSError {
-                    error = error1
-                    audioPlayer = nil
-                }
-                
-                audioPlayer?.delegate = self
-                
-                if let err = error{
-                    print("audioPlayer error: \(err.localizedDescription)")
-                }else{
-                    audioPlayer?.play()
-                    audioPlayerRecorded?.play()
-                    
-                }
-                
-                btnPlay.setTitle("Pause", for: UIControlState())
-                btnRecord.isEnabled = false
-                self.startTimer()
-                self.startSliderTimer()
-            } else {
-                audioPlayer.pause()
-                btnPlay.setTitle("Play", for: UIControlState())
-                btnRecord.isEnabled = true
-                self.stopTimer()
-            }
-//        }
         
+        //Nothing is playing
+        if audioPlayer.isPlaying == false {
+            var error : NSError?
+            audioPlayer?.delegate = self
+                
+            if let err = error{
+                print("audioPlayer error: \(err.localizedDescription)")
+            }else{
+                audioPlayer?.play()
+                audioPlayerRecorded?.play()
+            }
+                
+            btnPlay.setImage(#imageLiteral(resourceName: "icons8-Pause"), for: UIControlState())
+            btnRecord.isEnabled = false
+            self.startTimer()
+            self.startSliderTimer()
+        } else {
+            audioPlayer.pause()
+            if(audioPlayerRecorded != nil){
+                 audioPlayerRecorded.pause()
+            }
+           
+            btnPlay.setImage(#imageLiteral(resourceName: "icons8-Play"), for: UIControlState())
+            btnRecord.isEnabled = false
+            self.stopTimer()
+        }
+
         btnStop.isEnabled = true
     }
-
+    
+    //MARK: Action for play previous track
+    @IBAction func actionStop(_ sender: UIButton) {
+       
+        if audioRecorder != nil {
+            self.audioRecorderDidFinishRecording(audioRecorder,successfully: true)
+        }
+        
+        
+        if audioPlayer?.isPlaying == true {
+            audioPlayer?.stop()
+            audioPlayer?.currentTime = 0
+            self.initilizePlayer()
+            audioRecorder?.stop()
+            self.stopTimer()
+    
+        }
+        btnStop.isEnabled = false
+        btnPlay.isEnabled = true
+        btnRecord.isEnabled = true
+        
+        btnPlay.setImage(#imageLiteral(resourceName: "icons8-Play"), for: UIControlState())
+        slider.value = 0.0
+        phraseLabel.text = ""
+        currentTrackTimeLabel.text = "00:00"
+    
+    }
+    
     func updateSlider(){
         
         slider.maximumValue = Float(audioPlayer.duration)
         slider.value = Float(audioPlayer.currentTime)
-        print("Audio Player is playing:  ",audioPlayer.isPlaying)
-        let mins  = audioPlayer.currentTime/60
-        var seconds  = String(format: "%.2f",mins)
-        print("=====>> " , seconds)
-        seconds = seconds.replacingOccurrences(of: ".", with: ":")
-        
-        currentTrackTimeLabel.text = "\(seconds)"
+        let minutes = floor(audioPlayer.currentTime/60)
+        let seconds = Int(round(audioPlayer.currentTime - minutes * 60))
+
+        var minStr = ""
+        if(minutes < 10){
+            minStr = "0"
+        }
+        else{
+            minStr = ""
+        }
+        var secondsStr = ""
+        if(seconds < 10){
+            secondsStr = "0"
+        }
+        else{
+            secondsStr = ""
+        }
+       
+        DispatchQueue.main.async {
+            self.currentTrackTimeLabel.text = "\(minStr)\(Int(minutes)):\(secondsStr)\(seconds)"
+        }
         
     }
-
+    
     //MARK: Update slider
     func updateLyrics() {
-
-       
-
+        
         do{
             let lyricContent = try String(contentsOfFile: Bundle.main.path(forResource: "Adele - Skyfall Lyrics on screen", ofType: "lrc")!, encoding: String.Encoding.utf8)
             let lrcParser = DPBasicLRCParser()
@@ -245,50 +276,25 @@ class ViewController: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDe
             let myDouble = audioPlayer.currentTime
             let doubleStr = String(format: "%.2f", myDouble) // "3.14"
             
-            
-            print("FORMATTED " ,doubleStr)
-            
             if let phrase = lyricObject.lyricContent[doubleStr]{
                 print("--------------")
                 print(doubleStr,"   ",phrase)
                 phraseLabel.text = phrase
                 print("--------------")
             }
-           
-           
-            
             
         }catch{
             print("error")
         }
-        
-        
+    
     }
-    
-    
-    //MARK: Action for play previous track
-    @IBAction func actionStop(_ sender: UIButton) {
-        if audioPlayer?.isPlaying == true {
-            audioPlayer?.stop()
-            audioPlayer?.currentTime = 0
-            audioRecorder?.stop()
-            self.stopTimer()
-        }
-        btnRecord.isEnabled = true
-        btnPlay.setTitle("Play", for: UIControlState())
-        btnStop.isEnabled = false
-        slider.value = 0.0
-        phraseLabel.text = ""
-        currentTrackTimeLabel.text = "0:00"
-       }
     
     //Mark: AVAudioPlayer Delegate
     func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool){
         if flag == true {
-            //can perform next action
-            //self.playNextTrack()
+            
             self.initilizePlayer()
-            btnPlay.setTitle("Play", for: UIControlState())
+            btnPlay.setImage(#imageLiteral(resourceName: "icons8-Play"), for: UIControlState())
             btnRecord.isEnabled = true
             btnStop.isEnabled = false
         }
@@ -301,13 +307,23 @@ class ViewController: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDe
     
     func audioRecorderDidFinishRecording(_ recorder: AVAudioRecorder, successfully flag: Bool) {
         btnPlay.isEnabled = true
+        var error : NSError?
+        do {
+            audioPlayerRecorded = try AVAudioPlayer(contentsOf: (recorder.url))
+            
+        }
+        catch let error1 as NSError {
+            error = error1
+            audioPlayer = nil
+        }
+        audioPlayerRecorded.stop()
+        audioRecorder.stop()
         print("audio Recorder Did Finish Recording")
     }
     
     func audioRecorderEncodeErrorDidOccur(_ recorder: AVAudioRecorder, error: Error?) {
         print("Audio Record Encode Error")
     }
-    
     
     //MARK: Timer stop and start for update slider for time
     func startTimer() {
@@ -318,7 +334,6 @@ class ViewController: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDe
           timerSlider = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(ViewController.updateSlider), userInfo: nil, repeats: true)
     }
     
-    
     func stopTimer() {
         if timer.isValid == true {
             timer.invalidate()
@@ -328,7 +343,6 @@ class ViewController: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDe
         }
     }
     
-
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

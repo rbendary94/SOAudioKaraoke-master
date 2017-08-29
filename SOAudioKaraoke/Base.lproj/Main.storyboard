@@ -43,39 +43,42 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wvr-3o-t4J">
                                 <rect key="frame" x="0.0" y="603" width="375" height="64"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BEA-nb-Ef6">
-                                        <rect key="frame" x="157.5" y="17" width="60" height="30"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BEA-nb-Ef6">
+                                        <rect key="frame" x="158" y="17.5" width="60" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="6Rx-On-rsy"/>
                                             <constraint firstAttribute="width" constant="60" id="Jep-DD-b6R"/>
                                         </constraints>
-                                        <state key="normal" title="Play">
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <state key="normal" image="icons8-Play">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
                                             <action selector="actionPlaySound:" destination="BYZ-38-t0r" eventType="touchUpInside" id="v1c-8W-jan"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nMu-QY-LZB">
-                                        <rect key="frame" x="289" y="17" width="46" height="30"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nMu-QY-LZB">
+                                        <rect key="frame" x="289" y="17.5" width="46" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="eKH-Dc-Wwp"/>
                                             <constraint firstAttribute="width" constant="46" id="gTA-es-Akm"/>
                                         </constraints>
-                                        <state key="normal" title="Stop">
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <state key="normal" image="icons8-Stop">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
                                             <action selector="actionStop:" destination="BYZ-38-t0r" eventType="touchUpInside" id="KPn-o3-qwy"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oDG-C0-4OZ">
-                                        <rect key="frame" x="40" y="17" width="65" height="30"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oDG-C0-4OZ">
+                                        <rect key="frame" x="40" y="17.5" width="65" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="65" id="EPh-cE-UTC"/>
                                             <constraint firstAttribute="height" constant="30" id="tH1-Cy-rrh"/>
                                         </constraints>
-                                        <state key="normal" title="Record">
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <state key="normal" image="icons8-Microphone">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
@@ -198,6 +201,9 @@
         </scene>
     </scenes>
     <resources>
+        <image name="icons8-Microphone" width="25" height="25"/>
+        <image name="icons8-Play" width="25" height="25"/>
+        <image name="icons8-Stop" width="25" height="25"/>
         <image name="musicBackround" width="450" height="338"/>
     </resources>
 </document>
